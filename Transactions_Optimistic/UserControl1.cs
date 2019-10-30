@@ -24,8 +24,8 @@ namespace Transactions_Optimistic
             using ( SqlConnection conn = new SqlConnection(server + db + username + pwd))
             {
                 string sqlCmdText = $"Select model, speed, Rowversion " +
-                $"from PC Where " +
-                $"model = @model";
+                                    $"from PC Where " +
+                                    $"model = @model";
 
                 SqlParameter paramOne = new SqlParameter("@model", SqlDbType.VarChar, 4);
                 paramOne.Value = textBox1.Text;
@@ -79,7 +79,7 @@ namespace Transactions_Optimistic
                 if (antal > 0)
                     MessageBox.Show("Success - Changes_Made", "Update_Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Failure - No_Changes_Made . Timestamp_Has_Changed", "Update_Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Failure - No_Changes_Made", "Update_Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 
                 cmd.Connection.Close();
             }
